@@ -591,15 +591,19 @@ window.signInWithEmail = async () => {
   try {
     if (isSignUp) {
       await createUserWithEmailAndPassword(auth, email, pass);
+      showToast('Account created! Signing in...');
     } else {
       await signInWithEmailAndPassword(auth, email, pass);
     }
   } catch(e) {
+    console.error('Auth error:', e.code, e.message);
     const msg = e.code === 'auth/wrong-password' ? 'Wrong password' :
                 e.code === 'auth/user-not-found' ? 'No account found. Sign up instead.' :
                 e.code === 'auth/email-already-in-use' ? 'Email already in use. Sign in instead.' :
                 e.code === 'auth/weak-password' ? 'Password must be at least 6 characters' :
-                'Error. Try again.';
+                e.code === 'auth/invalid-email' ? 'Invalid email address' :
+                e.code === 'auth/network-request-failed' ? 'Network error. Check your connection.' :
+                'Error: ' + e.message;
     showToast(msg);
   }
 };
