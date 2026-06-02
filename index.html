@@ -523,7 +523,7 @@ import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.0/fireba
 import { getAuth, signInWithPopup, GoogleAuthProvider, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut as fbSignOut, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js';
 import { getFirestore, doc, setDoc, getDoc, collection, addDoc, query, orderBy, getDocs, updateDoc, increment } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
 
-const ANTHROPIC_KEY = 'PASTE_YOUR_NEW_API_KEY_HERE';
+const ANTHROPIC_KEY = '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';
 
 const firebaseConfig = {
   apiKey: "AIzaSyAqS4ZZJGSsTLNvu6aGyWIk1EQGiDs83vo",
@@ -558,21 +558,12 @@ setTimeout(() => {
   if (!currentUser) showScreen('signin');
 }, 5000);
 
-// ── AUTH STATE ──
+// ── AUTH STATE ── (handles page refresh / already logged in)
 onAuthStateChanged(auth, async user => {
   document.getElementById('fullLoader').style.display = 'none';
-  if (user) {
-    currentUser = user;
-    const profileDoc = await getDoc(doc(db, 'users', user.uid));
-    if (profileDoc.exists()) {
-      userProfile = profileDoc.data();
-      updateProfileUI();
-      loadHistory();
-      showScreen('home');
-    } else {
-      showScreen('onboard1');
-    }
-  } else {
+  if (user && !currentUser) {
+    await handleUserLogin(user);
+  } else if (!user) {
     showScreen('signin');
   }
 });
@@ -580,8 +571,12 @@ onAuthStateChanged(auth, async user => {
 // ── AUTH FUNCTIONS ──
 window.signInWithGoogle = async () => {
   try {
-    await signInWithPopup(auth, googleProvider);
-  } catch(e) { showToast('Google sign in failed. Try again.'); }
+    const result = await signInWithPopup(auth, googleProvider);
+    if (result.user) await handleUserLogin(result.user);
+  } catch(e) {
+    console.error('Google error:', e.code, e.message);
+    showToast('Google sign in failed: ' + e.code);
+  }
 };
 
 window.signInWithEmail = async () => {
@@ -589,15 +584,18 @@ window.signInWithEmail = async () => {
   const pass = document.getElementById('authPassword').value;
   if (!email || !pass) { showToast('Enter email and password'); return; }
   try {
+    let result;
     if (isSignUp) {
-      await createUserWithEmailAndPassword(auth, email, pass);
-      showToast('Account created! Signing in...');
+      result = await createUserWithEmailAndPassword(auth, email, pass);
+      showToast('Account created!');
     } else {
-      await signInWithEmailAndPassword(auth, email, pass);
+      result = await signInWithEmailAndPassword(auth, email, pass);
     }
+    if (result.user) await handleUserLogin(result.user);
   } catch(e) {
     console.error('Auth error:', e.code, e.message);
     const msg = e.code === 'auth/wrong-password' ? 'Wrong password' :
+                e.code === 'auth/invalid-credential' ? 'Wrong email or password' :
                 e.code === 'auth/user-not-found' ? 'No account found. Sign up instead.' :
                 e.code === 'auth/email-already-in-use' ? 'Email already in use. Sign in instead.' :
                 e.code === 'auth/weak-password' ? 'Password must be at least 6 characters' :
@@ -607,6 +605,19 @@ window.signInWithEmail = async () => {
     showToast(msg);
   }
 };
+
+async function handleUserLogin(user) {
+  currentUser = user;
+  const profileDoc = await getDoc(doc(db, 'users', user.uid));
+  if (profileDoc.exists()) {
+    userProfile = profileDoc.data();
+    updateProfileUI();
+    await loadHistory();
+    showScreen('home');
+  } else {
+    showScreen('onboard1');
+  }
+}
 
 window.toggleAuthMode = () => {
   isSignUp = !isSignUp;
