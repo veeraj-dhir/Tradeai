@@ -480,20 +480,43 @@ footer{padding:24px;border-top:1px solid var(--border);text-align:center;font-si
     <div class="upload-sub">Select timeframe and asset type first for accurate analysis.</div>
 
     <div class="timeframe-section">
-      <div class="tf-label">Timeframe</div>
+      <div class="tf-label">For most accurate analysis:</div>
+      <div style="font-size:13px;color:var(--text-dim);line-height:1.6;margin-bottom:16px">Upload 100 candles from each timeframe</div>
       <div class="tf-options">
-        <button class="tf-btn" onclick="selectTF(this,'1hr')">1 hr</button>
-        <button class="tf-btn" onclick="selectTF(this,'1day')">1 Day</button>
-        <button class="tf-btn" onclick="selectTF(this,'1week')">1 Week</button>
+        <button class="tf-btn" onclick="selectTF(this,'1hr')">📊 1 HOUR<br><span style="font-size:10px;color:var(--text-muted)">[need this]</span></button>
+        <button class="tf-btn" onclick="selectTF(this,'1day')">📊 1 DAY<br><span style="font-size:10px;color:var(--text-muted)">[need this]</span></button>
+        <button class="tf-btn" onclick="selectTF(this,'1week')">📊 1 WEEK<br><span style="font-size:10px;color:var(--text-muted)">[need this]</span></button>
       </div>
     </div>
 
-    <div class="tf-label" style="margin-bottom:10px">Asset type</div>
+    <div class="tf-label" style="margin-bottom:10px;margin-top:24px">Asset type</div>
     <div class="asset-options">
-      <button class="asset-btn" onclick="selectAsset(this,'Stocks')">📈 Stocks</button>
-      <button class="asset-btn" onclick="selectAsset(this,'Crypto')">₿ Crypto</button>
-      <button class="asset-btn" onclick="selectAsset(this,'Forex')">💱 Forex</button>
-      <button class="asset-btn" onclick="selectAsset(this,'Commodity')">🥇 Commodity</button>
+      <button class="asset-btn" id="assetStocks" onclick="selectAsset(this,'Stocks')">📈 Stocks</button>
+      <button class="asset-btn" id="assetCrypto" onclick="selectAsset(this,'Crypto')">₿ Crypto</button>
+      <button class="asset-btn" id="assetForex" onclick="selectAsset(this,'Forex')">💱 Forex</button>
+      <button class="asset-btn" id="assetCommodity" onclick="selectAsset(this,'Commodity')">🥇 Commodity</button>
+    </div>
+
+    <div style="margin-top:24px;padding:16px;background:var(--green-muted);border-radius:14px;border:1px solid var(--green-border)">
+      <div class="tf-label" style="margin-bottom:12px">Open popular trading platforms</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:12px">
+        <a href="https://zerodha.com" target="_blank" style="text-decoration:none;display:flex;flex-direction:column;align-items:center;gap:6px;padding:12px;background:var(--card);border-radius:12px;cursor:pointer;border:1px solid var(--border)">
+          <div style="font-size:24px;font-weight:800;color:var(--green)">Z</div>
+          <div style="font-size:11px;font-weight:600;color:var(--text-dim);text-align:center">Zerodha</div>
+        </a>
+        <a href="https://tradingview.com" target="_blank" style="text-decoration:none;display:flex;flex-direction:column;align-items:center;gap:6px;padding:12px;background:var(--card);border-radius:12px;cursor:pointer;border:1px solid var(--border)">
+          <div style="font-size:24px;font-weight:800;color:var(--green)">T</div>
+          <div style="font-size:11px;font-weight:600;color:var(--text-dim);text-align:center">TradingView</div>
+        </a>
+        <a href="https://binance.com" target="_blank" style="text-decoration:none;display:flex;flex-direction:column;align-items:center;gap:6px;padding:12px;background:var(--card);border-radius:12px;cursor:pointer;border:1px solid var(--border)">
+          <div style="font-size:24px;font-weight:800;color:var(--green)">B</div>
+          <div style="font-size:11px;font-weight:600;color:var(--text-dim);text-align:center">Binance</div>
+        </a>
+        <a href="https://coinbase.com" target="_blank" style="text-decoration:none;display:flex;flex-direction:column;align-items:center;gap:6px;padding:12px;background:var(--card);border-radius:12px;cursor:pointer;border:1px solid var(--border)">
+          <div style="font-size:24px;font-weight:800;color:var(--green)">C</div>
+          <div style="font-size:11px;font-weight:600;color:var(--text-dim);text-align:center">Coinbase</div>
+        </a>
+      </div>
     </div>
 
     <div class="upload-zone" id="dropZone" ondragover="handleDrag(event)" ondragleave="handleDragLeave(event)" ondrop="handleDrop(event)">
@@ -800,6 +823,19 @@ window.switchTab = id => {
   document.querySelectorAll('.bn-item').forEach(b => b.classList.remove('active'));
   const screens = document.querySelectorAll(`#${id} .bn-item`);
   if (screens.length > 0) screens[0].classList.add('active');
+  
+  // Unlock asset buttons when going to upload
+  if (id === 'upload') {
+    selectedTF = null;
+    selectedAsset = null;
+    document.querySelectorAll('.tf-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.asset-btn').forEach(b => {
+      b.classList.remove('active');
+      b.style.opacity = '1';
+      b.style.cursor = 'pointer';
+      b.style.pointerEvents = 'auto';
+    });
+  }
 };
 
 window.showToast = msg => {
@@ -831,7 +867,14 @@ window.selectTF = (el, val) => {
 };
 window.selectAsset = (el, val) => {
   document.querySelectorAll('.asset-btn').forEach(b => b.classList.remove('active'));
-  el.classList.add('active'); selectedAsset = val;
+  el.classList.add('active'); 
+  selectedAsset = val;
+  // Lock all asset buttons after selection
+  document.querySelectorAll('.asset-btn').forEach(b => {
+    b.style.opacity = '0.5';
+    b.style.cursor = 'not-allowed';
+    if (b !== el) b.style.pointerEvents = 'none';
+  });
 };
 window.handleDrag = e => { e.preventDefault(); document.getElementById('dropZone').classList.add('drag'); };
 window.handleDragLeave = () => document.getElementById('dropZone').classList.remove('drag');
