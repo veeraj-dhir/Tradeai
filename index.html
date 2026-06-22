@@ -101,8 +101,8 @@ footer{padding:24px;border-top:1px solid var(--border);text-align:center;font-si
 /* BOTTOM NAV */
 .bottom-nav{position:fixed;bottom:0;left:0;right:0;background:rgba(0,0,0,0.95);border-top:1px solid var(--border);display:flex;z-index:100;padding:8px 0 20px}
 .bn-item{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;cursor:pointer;padding:6px 0}
-.bn-icon{font-size:20px}
-.bn-label{font-size:10px;font-weight:600;color:var(--text-muted);letter-spacing:0.5px;text-transform:uppercase}
+.bn-icon{font-size:18px}
+.bn-label{font-size:9px;font-weight:600;color:var(--text-muted);letter-spacing:0.3px;text-transform:uppercase}
 .bn-item.active .bn-label{color:var(--green)}
 .bn-item.active .bn-icon{filter:drop-shadow(0 0 4px var(--green))}
 
@@ -136,6 +136,112 @@ footer{padding:24px;border-top:1px solid var(--border);text-align:center;font-si
 .option-label{font-size:14px;font-weight:700}
 .onboard-next{width:100%;padding:16px;background:var(--green);border:none;border-radius:100px;font-family:var(--font);font-size:16px;font-weight:800;color:var(--black);cursor:pointer;margin-top:32px}
 .onboard-next:disabled{opacity:0.4;cursor:not-allowed}
+
+/* RISK SLIDER */
+.risk-readout{display:flex;align-items:baseline;justify-content:center;gap:8px;margin-bottom:28px}
+.risk-readout-num{font-size:56px;font-weight:800;letter-spacing:-2px;color:var(--green);line-height:1}
+.risk-readout-suffix{font-size:16px;color:var(--text-muted);font-weight:700}
+.risk-slider-wrap{padding:4px 4px 0}
+.risk-slider{-webkit-appearance:none;appearance:none;width:100%;height:8px;border-radius:100px;background:linear-gradient(90deg,#FFA500,var(--green) 50%,#FF4444);outline:none;cursor:pointer}
+.risk-slider::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:28px;height:28px;border-radius:50%;background:var(--white);border:4px solid var(--black);box-shadow:0 0 0 2px var(--green);cursor:pointer}
+.risk-slider::-moz-range-thumb{width:28px;height:28px;border-radius:50%;background:var(--white);border:4px solid var(--black);box-shadow:0 0 0 2px var(--green);cursor:pointer}
+.risk-scale-labels{display:flex;justify-content:space-between;font-size:11px;color:var(--text-muted);margin-top:8px;font-family:var(--mono)}
+.risk-explain{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:18px;margin-top:24px;font-size:13px;color:var(--text-dim);line-height:1.6}
+.risk-explain b{color:var(--white)}
+.risk-explain-label{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--green);margin-bottom:8px}
+
+/* CONFIDENCE METER (result screen) */
+.vc-conf-row{margin-top:16px;padding-top:16px;border-top:1px solid rgba(255,255,255,0.08)}
+.vc-conf-toprow{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px}
+.vc-conf-label{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted)}
+.vc-conf-val{font-size:13px;font-weight:800;font-family:var(--mono);color:var(--white)}
+.vc-conf-track{width:100%;height:6px;border-radius:100px;background:rgba(255,255,255,0.1);position:relative;overflow:visible}
+.vc-conf-fill{height:100%;border-radius:100px;background:var(--green)}
+.vc-conf-threshold-marker{position:absolute;top:-3px;width:2px;height:12px;background:var(--white)}
+.vc-conf-note{font-size:11px;color:var(--text-muted);margin-top:8px;line-height:1.5}
+
+/* PROFILE RISK SETTING */
+.profile-risk-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px;margin-bottom:8px}
+.profile-risk-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+
+/* TRACK RECORD */
+.tr-body{flex:1;padding:24px 24px 100px}
+.tr-stat-card{background:var(--green-muted);border:1px solid var(--green-border);border-radius:20px;padding:24px;margin-bottom:16px;text-align:center}
+.tr-stat-num{font-size:48px;font-weight:800;letter-spacing:-1.5px;color:var(--green);line-height:1}
+.tr-stat-label{font-size:12px;color:var(--text-dim);margin-top:6px;font-weight:600}
+.tr-stat-sub{font-size:11px;color:var(--text-muted);margin-top:10px}
+.tr-breakdown{display:flex;gap:10px;margin-bottom:24px}
+.tr-bd-card{flex:1;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:14px;text-align:center}
+.tr-bd-num{font-size:20px;font-weight:800}
+.tr-bd-label{font-size:10px;color:var(--text-muted);margin-top:4px;text-transform:uppercase;letter-spacing:0.5px}
+.tr-list-title{font-size:13px;font-weight:700;color:var(--text-muted);margin-bottom:12px;text-transform:uppercase;letter-spacing:1px}
+.tr-item{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:14px 16px;margin-bottom:10px}
+.tr-item-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.tr-item-meta{font-size:12px;color:var(--text-muted);margin-top:2px}
+.tr-mark-row{display:flex;gap:8px}
+.tr-mark-btn{flex:1;padding:10px;border-radius:100px;border:1px solid var(--border);background:transparent;color:var(--text-dim);font-family:var(--font);font-size:12px;font-weight:700;cursor:pointer}
+.tr-mark-btn.hit{border-color:var(--green-border)}
+.tr-mark-btn.hit:active,.tr-mark-btn.hit.chosen{background:var(--green-muted);border-color:var(--green);color:var(--green)}
+.tr-mark-btn.miss{border-color:rgba(255,68,68,0.25)}
+.tr-mark-btn.miss:active,.tr-mark-btn.miss.chosen{background:rgba(255,68,68,0.12);border-color:var(--red);color:var(--red)}
+.tr-outcome-tag{font-size:12px;font-weight:700;padding:6px 14px;border-radius:100px;display:inline-block}
+.tr-outcome-tag.hit{background:var(--green-muted);color:var(--green)}
+.tr-outcome-tag.miss{background:rgba(255,68,68,0.12);color:var(--red)}
+.tr-empty{text-align:center;color:var(--text-muted);font-size:13px;padding:40px 0}
+
+/* NEWS INTELLIGENCE */
+.news-body{flex:1;padding:20px 20px 100px}
+.news-intro{font-size:13px;color:var(--text-muted);margin-bottom:20px;line-height:1.6}
+.news-asset-grid{display:flex;flex-direction:column;gap:10px;margin-bottom:28px}
+.news-asset-btn{display:flex;align-items:center;gap:14px;background:var(--card);border:1px solid var(--border);border-radius:16px;padding:16px 18px;cursor:pointer;width:100%;text-align:left;font-family:var(--font)}
+.news-asset-btn:active{border-color:var(--green)}
+.nav-asset-icon{font-size:26px;min-width:32px;text-align:center}
+.nav-asset-info{flex:1}
+.nav-asset-name{font-size:15px;font-weight:700;color:var(--white)}
+.nav-asset-sub{font-size:11px;color:var(--text-muted);margin-top:2px}
+.nav-asset-arrow{color:var(--text-muted);font-size:16px}
+/* news result overlay */
+.news-result-panel{display:none;position:fixed;inset:0;background:var(--black);z-index:200;overflow-y:auto;padding-bottom:40px}
+.news-result-panel.open{display:block}
+.nrp-header{display:flex;align-items:center;gap:12px;padding:20px 20px 0}
+.nrp-back{background:none;border:none;color:var(--white);font-size:22px;cursor:pointer;padding:4px}
+.nrp-title{font-size:18px;font-weight:800}
+.nrp-body{padding:20px}
+.nrp-sentiment-card{border-radius:20px;padding:24px;margin-bottom:16px;text-align:center}
+.nrp-sentiment-card.bullish{background:var(--green-muted);border:1px solid var(--green-border)}
+.nrp-sentiment-card.bearish{background:rgba(255,68,68,0.1);border:1px solid rgba(255,68,68,0.25)}
+.nrp-sentiment-card.neutral{background:var(--card);border:1px solid var(--border)}
+.nrp-sentiment-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--text-muted);margin-bottom:6px}
+.nrp-sentiment-val{font-size:32px;font-weight:800;letter-spacing:-0.5px}
+.nrp-sentiment-card.bullish .nrp-sentiment-val{color:var(--green)}
+.nrp-sentiment-card.bearish .nrp-sentiment-val{color:var(--red)}
+.nrp-sentiment-card.neutral .nrp-sentiment-val{color:var(--white)}
+.nrp-confidence-row{display:flex;align-items:center;gap:10px;margin-top:14px}
+.nrp-conf-label{font-size:11px;color:var(--text-dim);white-space:nowrap}
+.nrp-conf-track{flex:1;height:6px;border-radius:100px;background:rgba(255,255,255,0.1)}
+.nrp-conf-fill{height:100%;border-radius:100px;background:var(--green)}
+.nrp-conf-val{font-size:12px;font-weight:800;color:var(--white);white-space:nowrap}
+.nrp-weight-tag{display:inline-block;background:rgba(0,0,0,0.3);border:1px solid rgba(255,255,255,0.1);border-radius:100px;padding:6px 14px;font-size:12px;font-weight:700;color:var(--text-dim);margin-top:12px}
+.nrp-weight-tag b{color:var(--white)}
+.nrp-section-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--text-muted);margin-bottom:10px}
+.nrp-drivers{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:16px;margin-bottom:16px}
+.nrp-driver-item{display:flex;gap:10px;font-size:13px;color:var(--text-dim);line-height:1.5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.05)}
+.nrp-driver-item:last-child{border-bottom:none}
+.nrp-driver-dot{color:var(--green);font-weight:800;flex-shrink:0;margin-top:1px}
+.nrp-sources{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:4px 16px;margin-bottom:16px}
+.nrp-source-item{display:flex;align-items:flex-start;gap:12px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.05)}
+.nrp-source-item:last-child{border-bottom:none}
+.nrp-source-num{width:22px;height:22px;border-radius:50%;background:var(--green-muted);border:1px solid var(--green-border);color:var(--green);font-size:10px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.nrp-source-info{}
+.nrp-source-pub{font-size:10px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:3px}
+.nrp-source-headline{font-size:13px;color:var(--white);line-height:1.4}
+.nrp-source-url{font-size:10px;color:var(--text-muted);margin-top:2px;word-break:break-all}
+.nrp-loading{text-align:center;padding:60px 20px}
+.nrp-loading-icon{font-size:40px;animation:spin 1.5s linear infinite;display:inline-block;margin-bottom:16px}
+@keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+.nrp-loading-text{color:var(--text-muted);font-size:13px;line-height:1.6}
+.nrp-loading-asset{font-weight:800;color:var(--white)}
+.nrp-error{background:rgba(255,68,68,0.1);border:1px solid rgba(255,68,68,0.25);border-radius:16px;padding:16px;color:var(--red);font-size:13px;line-height:1.5}
 
 /* HOME DASHBOARD */
 .home-body{flex:1;padding:24px 24px 100px}
@@ -310,7 +416,7 @@ footer{padding:24px;border-top:1px solid var(--border);text-align:center;font-si
 <!-- ONBOARDING STEP 1 -->
 <div id="onboard1" class="screen">
   <div class="onboard-body">
-    <div class="onboard-step">Step 1 of 2</div>
+    <div class="onboard-step">Step 1 of 3</div>
     <div class="onboard-title">What do you trade?</div>
     <div class="onboard-sub">We'll tailor your analysis accordingly.</div>
     <div class="option-grid">
@@ -326,7 +432,7 @@ footer{padding:24px;border-top:1px solid var(--border);text-align:center;font-si
 <!-- ONBOARDING STEP 2 -->
 <div id="onboard2" class="screen">
   <div class="onboard-body">
-    <div class="onboard-step">Step 2 of 2</div>
+    <div class="onboard-step">Step 2 of 3</div>
     <div class="onboard-title">Your experience level?</div>
     <div class="onboard-sub">Helps us set the right analysis depth.</div>
     <div class="option-grid">
@@ -335,9 +441,37 @@ footer{padding:24px;border-top:1px solid var(--border);text-align:center;font-si
       <div class="option-card" onclick="selectOption(this,'expLevel','Advanced')"><div class="option-icon">🎯</div><div class="option-label">Advanced</div></div>
       <div class="option-card" onclick="selectOption(this,'expLevel','Professional')"><div class="option-icon">💼</div><div class="option-label">Professional</div></div>
     </div>
-    <button class="onboard-next" id="onboard2Next" disabled onclick="finishOnboarding()">Let's go →</button>
+    <button class="onboard-next" id="onboard2Next" disabled onclick="showScreen('onboard3')">Continue →</button>
   </div>
 </div>
+
+<!-- ONBOARDING STEP 3: RISK SLIDER -->
+<div id="onboard3" class="screen">
+  <div class="onboard-body">
+    <div class="onboard-step">Step 3 of 3</div>
+    <div class="onboard-title">Set your risk tolerance</div>
+    <div class="onboard-sub">This controls how sure the AI must be before it tells you to BUY.</div>
+
+    <div class="risk-readout">
+      <div class="risk-readout-num" id="riskReadoutNum">50</div>
+      <div class="risk-readout-suffix">/ 100 risk</div>
+    </div>
+
+    <div class="risk-slider-wrap">
+      <input type="range" min="0" max="100" value="50" step="5" class="risk-slider" id="riskSliderOnboard" oninput="updateRiskSlider(this.value)">
+      <div class="risk-scale-labels"><span>0 · Cautious</span><span>100 · Aggressive</span></div>
+    </div>
+
+    <div class="risk-explain">
+      <div class="risk-explain-label">What this means</div>
+      <div id="riskExplainText">At <b>50/100</b>, the AI needs to be at least <b id="riskReqConfText">50%</b> confident before it gives you a BUY. Lower this number to demand more certainty (fewer, safer BUYs). Raise it to get more BUY calls on weaker setups.</div>
+    </div>
+
+    <button class="onboard-next" onclick="finishOnboarding()">Let's go →</button>
+  </div>
+</div>
+
+
 
 <!-- HOME/LANDING -->
 <div id="home" class="screen">
@@ -352,9 +486,9 @@ footer{padding:24px;border-top:1px solid var(--border);text-align:center;font-si
   <div class="hero">
     <div class="hero-badge">AI-powered analysis</div>
     <h1>Read your chart.<br><span class="green">Know your move.</span></h1>
+    <p style="font-size:13px;color:var(--green);letter-spacing:0.5px;margin-bottom:12px;font-weight:600">Trade smarter, not harder.</p>
     <p class="hero-sub">Upload any trading chart. Get instant professional breakdown — pattern, trend, volume, verdict.</p>
     <button class="hero-cta" onclick="switchTab('upload')">Analyze my chart →</button>
-    <p class="hero-note">Free · No signup · Instant result</p>
     <div class="ticker">
       <div class="ticker-inner">
         <span class="tick-item">BTC/USD <span>+2.4%</span></span>
@@ -448,12 +582,32 @@ footer{padding:24px;border-top:1px solid var(--border);text-align:center;font-si
         <div class="proof-text">Used it before 3 trades this week. 2 were textbook calls. Saved me from a bad NIFTY entry.</div>
         <div class="proof-author">Priya K. · Options trader · Bengaluru</div>
       </div>
+      <div class="proof-card">
+        <div class="proof-stars">★★★★★</div>
+        <div class="proof-text">Been trading crypto for 2 years. This app identified a breakout I completely missed. Game changer.</div>
+        <div class="proof-author">Arjun D. · Crypto trader · Delhi</div>
+      </div>
+      <div class="proof-card">
+        <div class="proof-stars">★★★★★</div>
+        <div class="proof-text">The confidence scores are insane. It told me 85% confidence on a BUY and I made 12% in 2 days.</div>
+        <div class="proof-author">Sneha V. · Day trader · Mumbai</div>
+      </div>
+      <div class="proof-card">
+        <div class="proof-stars">★★★★★</div>
+        <div class="proof-text">I was a complete beginner. This app taught me pattern recognition better than any course.</div>
+        <div class="proof-author">Vikram S. · Beginner · Pune</div>
+      </div>
+      <div class="proof-card">
+        <div class="proof-stars">★★★★★</div>
+        <div class="proof-text">Stopped losing money on guesses. Now I have actual analysis backing my trades. Highly recommend.</div>
+        <div class="proof-author">Anjali T. · Stocks trader · Chennai</div>
+      </div>
     </div>
   </div>
 
   <div class="final-cta">
     <h2>Ready to trade smarter?</h2>
-    <p>Analyze your first chart free. No account needed.</p>
+    <p>Analyze your charts with AI-powered insights.</p>
     <button class="final-cta-btn" onclick="switchTab('upload')">Analyze my chart →</button>
   </div>
 
@@ -464,6 +618,8 @@ footer{padding:24px;border-top:1px solid var(--border);text-align:center;font-si
     <div class="bn-item" onclick="switchTab('upload')"><div class="bn-icon">📈</div><div class="bn-label">Analyze</div></div>
     <div class="bn-item" onclick="switchTab('historyPage')"><div class="bn-icon">📋</div><div class="bn-label">History</div></div>
     <div class="bn-item" onclick="switchTab('profile')"><div class="bn-icon">👤</div><div class="bn-label">Profile</div></div>
+    <div class="bn-item" onclick="switchTab('trackRecord')"><div class="bn-icon">🎯</div><div class="bn-label">Record</div></div>
+    <div class="bn-item" onclick="switchTab('newsPage')"><div class="bn-icon">📡</div><div class="bn-label">News</div></div>
   </div>
 </div>
 
@@ -499,7 +655,7 @@ footer{padding:24px;border-top:1px solid var(--border);text-align:center;font-si
 
     <div style="margin-top:24px;padding:16px;background:var(--green-muted);border-radius:14px;border:1px solid var(--green-border)">
       <div class="tf-label" style="margin-bottom:12px">Open popular trading platforms</div>
-      <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:12px">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
         <a href="https://zerodha.com" target="_blank" style="text-decoration:none;display:flex;flex-direction:column;align-items:center;gap:6px;padding:12px;background:var(--card);border-radius:12px;cursor:pointer;border:1px solid var(--border)">
           <div style="font-size:24px;font-weight:800;color:var(--green)">Z</div>
           <div style="font-size:11px;font-weight:600;color:var(--text-dim);text-align:center">Zerodha</div>
@@ -542,6 +698,8 @@ footer{padding:24px;border-top:1px solid var(--border);text-align:center;font-si
     <div class="bn-item active" onclick="switchTab('upload')"><div class="bn-icon">📈</div><div class="bn-label">Analyze</div></div>
     <div class="bn-item" onclick="switchTab('historyPage')"><div class="bn-icon">📋</div><div class="bn-label">History</div></div>
     <div class="bn-item" onclick="switchTab('profile')"><div class="bn-icon">👤</div><div class="bn-label">Profile</div></div>
+    <div class="bn-item" onclick="switchTab('trackRecord')"><div class="bn-icon">🎯</div><div class="bn-label">Record</div></div>
+    <div class="bn-item" onclick="switchTab('newsPage')"><div class="bn-icon">📡</div><div class="bn-label">News</div></div>
   </div>
 </div>
 
@@ -599,6 +757,17 @@ footer{padding:24px;border-top:1px solid var(--border);text-align:center;font-si
       <div class="vc-label">Verdict</div>
       <div class="vc-verdict" id="resultVerdict">—</div>
       <div class="vc-note" id="verdictNote"></div>
+      <div class="vc-conf-row">
+        <div class="vc-conf-toprow">
+          <div class="vc-conf-label">AI Confidence</div>
+          <div class="vc-conf-val" id="resConfVal">—/100</div>
+        </div>
+        <div class="vc-conf-track">
+          <div class="vc-conf-fill" id="resConfFill" style="width:0%"></div>
+          <div class="vc-conf-threshold-marker" id="resConfMarker" style="left:0%"></div>
+        </div>
+        <div class="vc-conf-note" id="resConfNote"></div>
+      </div>
     </div>
     <div class="tsl-row">
       <div class="tsl-card"><div class="tsl-label">Target</div><div class="tsl-val" id="resTarget">—</div></div>
@@ -623,6 +792,8 @@ footer{padding:24px;border-top:1px solid var(--border);text-align:center;font-si
     <div class="bn-item" onclick="switchTab('upload')"><div class="bn-icon">📈</div><div class="bn-label">Analyze</div></div>
     <div class="bn-item" onclick="switchTab('historyPage')"><div class="bn-icon">📋</div><div class="bn-label">History</div></div>
     <div class="bn-item" onclick="switchTab('profile')"><div class="bn-icon">👤</div><div class="bn-label">Profile</div></div>
+    <div class="bn-item" onclick="switchTab('trackRecord')"><div class="bn-icon">🎯</div><div class="bn-label">Record</div></div>
+    <div class="bn-item" onclick="switchTab('newsPage')"><div class="bn-icon">📡</div><div class="bn-label">News</div></div>
   </div>
 </div>
 
@@ -641,6 +812,8 @@ footer{padding:24px;border-top:1px solid var(--border);text-align:center;font-si
     <div class="bn-item" onclick="switchTab('upload')"><div class="bn-icon">📈</div><div class="bn-label">Analyze</div></div>
     <div class="bn-item active" onclick="switchTab('historyPage')"><div class="bn-icon">📋</div><div class="bn-label">History</div></div>
     <div class="bn-item" onclick="switchTab('profile')"><div class="bn-icon">👤</div><div class="bn-label">Profile</div></div>
+    <div class="bn-item" onclick="switchTab('trackRecord')"><div class="bn-icon">🎯</div><div class="bn-label">Record</div></div>
+    <div class="bn-item" onclick="switchTab('newsPage')"><div class="bn-icon">📡</div><div class="bn-label">News</div></div>
   </div>
 </div>
 
@@ -656,6 +829,15 @@ footer{padding:24px;border-top:1px solid var(--border);text-align:center;font-si
       <div class="profile-item"><div class="profile-item-label">Trades in</div><div class="profile-item-val" id="profTradeType">—</div></div>
       <div class="profile-item"><div class="profile-item-label">Experience</div><div class="profile-item-val" id="profExpLevel">—</div></div>
       <div class="profile-item"><div class="profile-item-label">Total analyses</div><div class="profile-item-val" id="profTotal">0</div></div>
+      <div class="profile-risk-card">
+        <div class="profile-risk-top">
+          <div class="profile-item-label">Risk tolerance</div>
+          <div class="profile-item-val" id="profRiskVal">50/100</div>
+        </div>
+        <input type="range" min="0" max="100" value="50" step="5" class="risk-slider" id="riskSliderProfile" oninput="updateRiskSliderProfile(this.value)" onchange="saveRiskTolerance(this.value)">
+        <div class="risk-scale-labels"><span>0 · Cautious</span><span>100 · Aggressive</span></div>
+        <div class="vc-conf-note" id="profRiskExplain">Needs ≥50% AI confidence to BUY.</div>
+      </div>
     </div>
     <button class="btn-signout" onclick="signOut()">Sign out</button>
   </div>
@@ -664,10 +846,100 @@ footer{padding:24px;border-top:1px solid var(--border);text-align:center;font-si
     <div class="bn-item" onclick="switchTab('upload')"><div class="bn-icon">📈</div><div class="bn-label">Analyze</div></div>
     <div class="bn-item" onclick="switchTab('historyPage')"><div class="bn-icon">📋</div><div class="bn-label">History</div></div>
     <div class="bn-item active" onclick="switchTab('profile')"><div class="bn-icon">👤</div><div class="bn-label">Profile</div></div>
+    <div class="bn-item" onclick="switchTab('trackRecord')"><div class="bn-icon">🎯</div><div class="bn-label">Record</div></div>
+    <div class="bn-item" onclick="switchTab('newsPage')"><div class="bn-icon">📡</div><div class="bn-label">News</div></div>
+  </div>
+</div>
+
+<!-- TRACK RECORD -->
+<div id="trackRecord" class="screen">
+  <nav>
+    <div class="logo-wrap"><div class="logo">Track <span>Record</span></div></div>
+  </nav>
+  <div class="tr-body">
+    <div class="tr-stat-card">
+      <div class="tr-stat-num" id="trAccuracyNum">—%</div>
+      <div class="tr-stat-label">Accuracy on marked calls</div>
+      <div class="tr-stat-sub" id="trAccuracySub">No calls marked yet</div>
+    </div>
+    <div class="tr-breakdown">
+      <div class="tr-bd-card"><div class="tr-bd-num" id="trHitCount" style="color:var(--green)">0</div><div class="tr-bd-label">Hits</div></div>
+      <div class="tr-bd-card"><div class="tr-bd-num" id="trMissCount" style="color:var(--red)">0</div><div class="tr-bd-label">Misses</div></div>
+      <div class="tr-bd-card"><div class="tr-bd-num" id="trPendingCount">0</div><div class="tr-bd-label">Unmarked</div></div>
+    </div>
+    <div class="tr-list-title">All calls</div>
+    <div id="trList"><div class="tr-empty">No analyses yet. Go analyze a chart first.</div></div>
+  </div>
+  <div class="bottom-nav">
+    <div class="bn-item" onclick="switchTab('home')"><div class="bn-icon">🏠</div><div class="bn-label">Home</div></div>
+    <div class="bn-item" onclick="switchTab('upload')"><div class="bn-icon">📈</div><div class="bn-label">Analyze</div></div>
+    <div class="bn-item" onclick="switchTab('historyPage')"><div class="bn-icon">📋</div><div class="bn-label">History</div></div>
+    <div class="bn-item" onclick="switchTab('profile')"><div class="bn-icon">👤</div><div class="bn-label">Profile</div></div>
+    <div class="bn-item active" onclick="switchTab('trackRecord')"><div class="bn-icon">🎯</div><div class="bn-label">Record</div></div>
+    <div class="bn-item" onclick="switchTab('newsPage')"><div class="bn-icon">📡</div><div class="bn-label">News</div></div>
+  </div>
+</div>
+
+<!-- NEWS INTELLIGENCE -->
+<div id="newsPage" class="screen">
+  <nav><div class="logo-wrap"><div class="logo">News <span>Intel</span></div></div></nav>
+  <div class="news-body">
+    <div class="news-intro">Tap an asset to get live news analysis — Claude searches the web right now and tells you the market sentiment plus every source it checked.</div>
+    <div class="news-asset-grid">
+      <button class="news-asset-btn" onclick="fetchNewsFor('gold','Gold (XAU/USD)','🥇','Precious metal, safe-haven asset')">
+        <div class="nav-asset-icon">🥇</div>
+        <div class="nav-asset-info"><div class="nav-asset-name">Gold</div><div class="nav-asset-sub">XAU/USD · Safe haven</div></div>
+        <div class="nav-asset-arrow">→</div>
+      </button>
+      <button class="news-asset-btn" onclick="fetchNewsFor('wti','WTI Crude Oil','🛢️','US benchmark crude, petroleum market')">
+        <div class="nav-asset-icon">🛢️</div>
+        <div class="nav-asset-info"><div class="nav-asset-name">WTI Crude Oil</div><div class="nav-asset-sub">Petroleum · US benchmark</div></div>
+        <div class="nav-asset-arrow">→</div>
+      </button>
+      <button class="news-asset-btn" onclick="fetchNewsFor('eurusd','EUR/USD','💶','Euro vs US Dollar forex pair')">
+        <div class="nav-asset-icon">💶</div>
+        <div class="nav-asset-info"><div class="nav-asset-name">EUR / USD</div><div class="nav-asset-sub">Forex · Euro vs Dollar</div></div>
+        <div class="nav-asset-arrow">→</div>
+      </button>
+      <button class="news-asset-btn" onclick="fetchNewsFor('jpyusd','JPY/USD (Yen vs Dollar)','🇯🇵','Japanese Yen vs US Dollar forex pair')">
+        <div class="nav-asset-icon">🇯🇵</div>
+        <div class="nav-asset-info"><div class="nav-asset-name">JPY / USD</div><div class="nav-asset-sub">Forex · Yen vs Dollar</div></div>
+        <div class="nav-asset-arrow">→</div>
+      </button>
+      <button class="news-asset-btn" onclick="fetchNewsFor('bitcoin','Bitcoin (BTC/USD)','₿','Bitcoin cryptocurrency')">
+        <div class="nav-asset-icon">₿</div>
+        <div class="nav-asset-info"><div class="nav-asset-name">Bitcoin</div><div class="nav-asset-sub">BTC/USD · Crypto</div></div>
+        <div class="nav-asset-arrow">→</div>
+      </button>
+    </div>
+  </div>
+  <div class="bottom-nav">
+    <div class="bn-item" onclick="switchTab('home')"><div class="bn-icon">🏠</div><div class="bn-label">Home</div></div>
+    <div class="bn-item" onclick="switchTab('upload')"><div class="bn-icon">📈</div><div class="bn-label">Analyze</div></div>
+    <div class="bn-item" onclick="switchTab('historyPage')"><div class="bn-icon">📋</div><div class="bn-label">History</div></div>
+    <div class="bn-item" onclick="switchTab('profile')"><div class="bn-icon">👤</div><div class="bn-label">Profile</div></div>
+    <div class="bn-item" onclick="switchTab('trackRecord')"><div class="bn-icon">🎯</div><div class="bn-label">Record</div></div>
+    <div class="bn-item active" onclick="switchTab('newsPage')"><div class="bn-icon">📡</div><div class="bn-label">News</div></div>
+  </div>
+</div>
+
+<!-- NEWS RESULT OVERLAY (floats above everything) -->
+<div id="newsResultPanel" class="news-result-panel">
+  <div class="nrp-header">
+    <button class="nrp-back" onclick="closeNewsResult()">←</button>
+    <div class="nrp-title" id="nrpTitle">Gold</div>
+  </div>
+  <div class="nrp-body" id="nrpBody">
+    <div class="nrp-loading">
+      <div class="nrp-loading-icon">🔍</div>
+      <div class="nrp-loading-text">Searching live news for <span class="nrp-loading-asset" id="nrpLoadingAsset">Gold</span>…<br>This takes 10–20 seconds.</div>
+    </div>
   </div>
 </div>
 
 <div class="toast" id="toast"></div>
+
+
 
 <!-- FIREBASE + APP SCRIPTS -->
 <script type="module">
@@ -699,7 +971,7 @@ let currentImageBase64 = null;
 let currentImageType = null;
 let deferredPrompt = null;
 let isSignUp = false;
-let onboardData = { tradeType: null, expLevel: null };
+let onboardData = { tradeType: null, expLevel: null, riskTolerance: 50 };
 let currentResult = null;
 
 window.addEventListener('beforeinstallprompt', e => { e.preventDefault(); deferredPrompt = e; });
@@ -795,6 +1067,36 @@ window.selectOption = (el, key, val) => {
   if (key === 'expLevel') document.getElementById('onboard2Next').disabled = false;
 };
 
+// risk (0-100) is how much certainty the user is willing to skip.
+// required confidence to BUY = 100 - risk. Risk 90 → only needs 10% sure. Risk 10 → needs 90% sure.
+function requiredConfidenceFor(risk) { return 100 - Number(risk); }
+
+window.updateRiskSlider = (val) => {
+  onboardData.riskTolerance = Number(val);
+  const req = requiredConfidenceFor(val);
+  document.getElementById('riskReadoutNum').textContent = val;
+  document.getElementById('riskExplainText').innerHTML =
+    `At <b>${val}/100</b>, the AI needs to be at least <b id="riskReqConfText">${req}%</b> confident before it gives you a BUY. Lower this number to demand more certainty (fewer, safer BUYs). Raise it to get more BUY calls on weaker setups.`;
+};
+
+window.updateRiskSliderProfile = (val) => {
+  const req = requiredConfidenceFor(val);
+  document.getElementById('profRiskVal').textContent = `${val}/100`;
+  document.getElementById('profRiskExplain').textContent = `Needs ≥${req}% AI confidence to BUY.`;
+};
+
+window.saveRiskTolerance = async (val) => {
+  if (!currentUser || !userProfile) return;
+  const risk = Number(val);
+  userProfile.riskTolerance = risk;
+  try {
+    await updateDoc(doc(db, 'users', currentUser.uid), { riskTolerance: risk });
+    showToast(`Risk set to ${risk}/100 — BUY now requires ≥${requiredConfidenceFor(risk)}% AI confidence`);
+  } catch(e) {
+    console.error('Failed to save risk tolerance', e);
+  }
+};
+
 window.finishOnboarding = async () => {
   if (!currentUser) return;
   const profile = {
@@ -802,6 +1104,7 @@ window.finishOnboarding = async () => {
     displayName: currentUser.displayName || currentUser.email.split('@')[0],
     tradeType: onboardData.tradeType,
     expLevel: onboardData.expLevel,
+    riskTolerance: onboardData.riskTolerance ?? 50,
     totalAnalyses: 0,
     createdAt: new Date().toISOString()
   };
@@ -858,6 +1161,9 @@ function updateProfileUI() {
   document.getElementById('profExpLevel').textContent = userProfile.expLevel || '—';
   document.getElementById('profTotal').textContent = userProfile.totalAnalyses || 0;
   document.getElementById('profileAvatar').textContent = name.charAt(0).toUpperCase();
+  const risk = userProfile.riskTolerance ?? 50;
+  document.getElementById('riskSliderProfile').value = risk;
+  updateRiskSliderProfile(risk);
 }
 
 // ── UPLOAD ──
@@ -915,6 +1221,8 @@ window.startAnalysis = async () => {
   const tfMap = { '1hr': '1 Hour', '1day': '1 Day', '1week': '1 Week' };
   const timeframeLabel = tfMap[selectedTF] || selectedTF;
   const expLevel = userProfile?.expLevel || 'Intermediate';
+  const riskTolerance = userProfile?.riskTolerance ?? 50;
+  const requiredConfidence = requiredConfidenceFor(riskTolerance);
 
   const systemPrompt = `You are a professional trading analyst. The trader is analyzing a ${timeframeLabel} ${selectedAsset} chart. Trader experience: ${expLevel}.
 
@@ -923,10 +1231,12 @@ Rules:
 - Use exact terms: Doji, Hammer, Engulfing, Harami, Shooting Star, Head & Shoulders, Double Top/Bottom, Cup & Handle, Wedge, Flag, Pennant, Triangle, RSI, MACD, EMA, SMA, Bollinger Bands, Support, Resistance, Volume
 - Verdict must be exactly: BUY, WAIT, or AVOID
 - For ${expLevel} level, adjust technical depth accordingly
+- You MUST include a "confidence" field: an integer 0-100 representing how sure you genuinely are of this verdict based on signal clarity and confluence on the chart. Be honest and calibrated — do not inflate it. This number is independently checked, so it must reflect real certainty, not optimism.
+- The trader's required confidence threshold to BUY is ${requiredConfidence}/100. If your honest confidence is below ${requiredConfidence}, the verdict MUST be "WAIT" (or "AVOID" if the setup is genuinely bad), never "BUY".
 - CRITICAL: Return ONLY raw JSON starting with { and ending with }. No markdown, no backticks, no explanation whatsoever.
 
 Required JSON format:
-{"verdict":"BUY","asset":{"name":"asset name","timeframe":"${timeframeLabel}","price":"price if visible","change":"change if visible"},"pattern":{"tag":"Bullish","headline":"max 6 words","detail":"one sentence with exact pattern name"},"trend":{"tag":"Strong","headline":"max 6 words","detail":"one sentence","bars":[{"label":"Short-term","pct":75,"color":"green"},{"label":"Long-term","pct":80,"color":"green"}]},"volume":{"tag":"Confirming","headline":"max 6 words","detail":"one sentence","bars":[{"label":"vs avg","pct":65,"color":"green"}]},"verdict_note":"one sharp sentence on entry or why to wait","target":"price or % target","stop_loss":"stop loss level","profit_pct":"+X.X%","loss_pct":"-X.X%","watch_for":"one sentence on what to monitor next"}`;
+{"verdict":"BUY","confidence":72,"asset":{"name":"asset name","timeframe":"${timeframeLabel}","price":"price if visible","change":"change if visible"},"pattern":{"tag":"Bullish","headline":"max 6 words","detail":"one sentence with exact pattern name"},"trend":{"tag":"Strong","headline":"max 6 words","detail":"one sentence","bars":[{"label":"Short-term","pct":75,"color":"green"},{"label":"Long-term","pct":80,"color":"green"}]},"volume":{"tag":"Confirming","headline":"max 6 words","detail":"one sentence","bars":[{"label":"vs avg","pct":65,"color":"green"}]},"verdict_note":"one sharp sentence on entry or why to wait","target":"price or % target","stop_loss":"stop loss level","profit_pct":"+X.X%","loss_pct":"-X.X%","watch_for":"one sentence on what to monitor next"}`;
 
   try {
     const res = await fetch('https://api.anthropic.com/v1/messages', {
@@ -965,6 +1275,21 @@ Required JSON format:
     let parsed;
     try { parsed = JSON.parse(jsonStr); }
     catch(e) { parsed = JSON.parse(jsonStr.replace(/,\s*}/g,'}').replace(/,\s*]/g,']')); }
+
+    // ── HARD ENFORCEMENT ──
+    // Never trust the model's own arithmetic. If it returned a verdict of BUY
+    // but its self-reported confidence is below what THIS user requires, downgrade it ourselves.
+    let confidence = Number(parsed.confidence);
+    if (isNaN(confidence)) confidence = requiredConfidence; // fallback if model forgot the field
+    confidence = Math.max(0, Math.min(100, confidence));
+    parsed.confidence = confidence;
+    parsed.requiredConfidence = requiredConfidence;
+    parsed.riskTolerance = riskTolerance;
+
+    if (parsed.verdict === 'BUY' && confidence < requiredConfidence) {
+      parsed.verdict = 'WAIT';
+      parsed.verdict_note = `Confidence is ${confidence}/100 — below your ${requiredConfidence}/100 threshold (risk set to ${riskTolerance}/100), so this is downgraded from BUY to WAIT.`;
+    }
 
     currentResult = parsed;
     renderResult(parsed);
@@ -1034,6 +1359,31 @@ function renderResult(data) {
   document.getElementById('resProfitPct').textContent = data.profit_pct||'—';
   document.getElementById('resLossPct').textContent = data.loss_pct||'—';
   if(data.watch_for) document.getElementById('resWatch').textContent = data.watch_for;
+
+  // Confidence meter
+  const conf = typeof data.confidence === 'number' ? data.confidence : null;
+  const reqConf = typeof data.requiredConfidence === 'number' ? data.requiredConfidence : null;
+  if (conf !== null) {
+    document.getElementById('resConfVal').textContent = `${conf}/100`;
+    const fillEl = document.getElementById('resConfFill');
+    fillEl.style.width = conf + '%';
+    fillEl.style.background = conf >= (reqConf ?? 0) ? 'var(--green)' : 'var(--amber)';
+    const marker = document.getElementById('resConfMarker');
+    if (reqConf !== null) {
+      marker.style.left = reqConf + '%';
+      marker.style.display = 'block';
+      document.getElementById('resConfNote').textContent =
+        `Your risk setting (${data.riskTolerance ?? '—'}/100) requires ≥${reqConf}/100 confidence for a BUY.`;
+    } else {
+      marker.style.display = 'none';
+      document.getElementById('resConfNote').textContent = '';
+    }
+  } else {
+    document.getElementById('resConfVal').textContent = '—/100';
+    document.getElementById('resConfFill').style.width = '0%';
+    document.getElementById('resConfMarker').style.display = 'none';
+    document.getElementById('resConfNote').textContent = '';
+  }
 }
 
 // ── FIREBASE HISTORY ──
@@ -1042,6 +1392,8 @@ async function saveToHistory(data) {
   try {
     await addDoc(collection(db, 'users', currentUser.uid, 'analyses'), {
       verdict: data.verdict,
+      confidence: data.confidence ?? null,
+      requiredConfidence: data.requiredConfidence ?? null,
       assetName: data.asset?.name || 'Chart',
       timeframe: data.asset?.timeframe || selectedTF,
       assetType: selectedAsset,
@@ -1060,14 +1412,18 @@ async function saveToHistory(data) {
   } catch(e) { console.log('Save error', e); }
 }
 
+let allHistoryItems = [];
+
 async function loadHistory() {
   if (!currentUser) return;
   try {
     const q = query(collection(db, 'users', currentUser.uid, 'analyses'), orderBy('timestamp','desc'));
     const snap = await getDocs(q);
     const items = [];
-    snap.forEach(d => items.push(d.data()));
+    snap.forEach(d => items.push({ id: d.id, ...d.data() }));
+    allHistoryItems = items;
     renderHistory(items);
+    renderTrackRecord(items);
   } catch(e) { console.log('Load error', e); }
 }
 
@@ -1078,18 +1434,219 @@ function renderHistory(items) {
       <div class="history-item">
         <div>
           <div class="hi-asset">${item.assetName}</div>
-          <div class="hi-meta">${item.timeframe||''} · ${item.assetType||''} · ${new Date(item.timestamp).toLocaleDateString('en-IN',{day:'numeric',month:'short'})}</div>
+          <div class="hi-meta">${item.timeframe||''} · ${item.assetType||''} · ${new Date(item.timestamp).toLocaleDateString('en-IN',{day:'numeric',month:'short'})}${item.confidence!=null ? ' · '+item.confidence+'/100 conf' : ''}</div>
         </div>
         <div class="hi-verdict verdict-${item.verdict}">${item.verdict}</div>
       </div>`).join('');
   document.getElementById('historyList').innerHTML = html;
 }
 
+function renderTrackRecord(items) {
+  const hits = items.filter(i => i.outcome === 'hit').length;
+  const misses = items.filter(i => i.outcome === 'miss').length;
+  const pending = items.length - hits - misses;
+  const marked = hits + misses;
+  const accuracy = marked > 0 ? Math.round((hits / marked) * 100) : null;
+
+  document.getElementById('trAccuracyNum').textContent = accuracy !== null ? accuracy + '%' : '—%';
+  document.getElementById('trAccuracySub').textContent = marked > 0
+    ? `Based on ${marked} marked call${marked===1?'':'s'}`
+    : 'Mark your calls below to build your track record';
+  document.getElementById('trHitCount').textContent = hits;
+  document.getElementById('trMissCount').textContent = misses;
+  document.getElementById('trPendingCount').textContent = pending;
+
+  const listEl = document.getElementById('trList');
+  if (items.length === 0) {
+    listEl.innerHTML = '<div class="tr-empty">No analyses yet. Go analyze a chart first.</div>';
+    return;
+  }
+
+  listEl.innerHTML = items.map(item => {
+    const dateStr = new Date(item.timestamp).toLocaleDateString('en-IN',{day:'numeric',month:'short'});
+    const confStr = item.confidence != null ? ` · ${item.confidence}/100 conf` : '';
+    const actionRow = item.outcome
+      ? `<div class="tr-outcome-tag ${item.outcome}">${item.outcome === 'hit' ? '✅ Hit' : '❌ Miss'}</div>`
+      : `<div class="tr-mark-row">
+          <button class="tr-mark-btn hit" onclick="markOutcome('${item.id}','hit')">✅ It hit</button>
+          <button class="tr-mark-btn miss" onclick="markOutcome('${item.id}','miss')">❌ It missed</button>
+        </div>`;
+    return `
+      <div class="tr-item">
+        <div class="tr-item-top">
+          <div>
+            <div class="hi-asset">${item.assetName}</div>
+            <div class="tr-item-meta">${item.timeframe||''} · ${item.assetType||''} · ${dateStr}${confStr}</div>
+          </div>
+          <div class="hi-verdict verdict-${item.verdict}">${item.verdict}</div>
+        </div>
+        ${actionRow}
+      </div>`;
+  }).join('');
+}
+
+window.markOutcome = async (id, outcome) => {
+  if (!currentUser || !id) return;
+  try {
+    await updateDoc(doc(db, 'users', currentUser.uid, 'analyses', id), { outcome });
+    const item = allHistoryItems.find(i => i.id === id);
+    if (item) item.outcome = outcome;
+    renderTrackRecord(allHistoryItems);
+  } catch(e) {
+    console.error('Failed to save outcome', e);
+    showToast('Could not save — try again');
+  }
+};
+
 window.shareResult = () => {
   if (!currentResult) return;
   const text = `Tradeai analysis: ${currentResult.verdict} · ${currentResult.profit_pct||''} upside\n${currentResult.asset?.name||'Chart'} · ${currentResult.asset?.timeframe||''}\nAnalyze your charts free on Tradeai`;
   if(navigator.share) navigator.share({title:'Tradeai Analysis',text}).catch(()=>{});
   else navigator.clipboard.writeText(text).then(()=>showToast('Copied to clipboard'));
+};
+
+// ── NEWS INTELLIGENCE ──────────────────────────────────────
+
+window.fetchNewsFor = async (assetKey, assetFullName, icon, assetDesc) => {
+  const panel = document.getElementById('newsResultPanel');
+  const body = document.getElementById('nrpBody');
+  document.getElementById('nrpTitle').textContent = icon + ' ' + assetFullName;
+  document.getElementById('nrpLoadingAsset').textContent = assetFullName;
+  body.innerHTML = `
+    <div class="nrp-loading">
+      <div class="nrp-loading-icon">🔍</div>
+      <div class="nrp-loading-text">Searching live news for <span class="nrp-loading-asset">${assetFullName}</span>…<br>This takes 10–20 seconds.</div>
+    </div>`;
+  panel.classList.add('open');
+
+  const systemPrompt = `You are a financial news analyst with access to real-time web search. You are given an asset to research.
+
+Your job:
+1. Search for the LATEST news (today or this week) about the asset using multiple searches: general news, central bank/government statements, economic data releases, geopolitical events, and any sector-specific news.
+2. Synthesize everything into a structured market sentiment analysis.
+3. Be direct and specific — name actual events, actual figures, actual dates. No vague generalities.
+
+CRITICAL: Return ONLY raw JSON — no markdown, no backticks, nothing before { or after }.
+
+Required JSON format:
+{
+  "sentiment": "Bullish" | "Bearish" | "Neutral",
+  "confidence": <integer 0-100, how strongly the news tilts this way>,
+  "news_weight_pct": <integer 0-100, how much weight news should get vs technicals in deciding a trade. High if big macro event just happened, low if news is thin or contradictory.>,
+  "summary": "<2-3 sentence sharp summary of the overall news picture for this asset right now>",
+  "key_drivers": [
+    "<specific news event or data point driving sentiment — include figures and dates>",
+    "<another driver>",
+    "<another driver>",
+    "<another driver if exists>"
+  ],
+  "sources": [
+    {
+      "publication": "<outlet name e.g. Reuters, Bloomberg, CNBC>",
+      "headline": "<actual headline or paraphrase of the article>",
+      "url": "<url if available, else empty string>",
+      "date": "<date of article e.g. Jun 22 2026>"
+    }
+  ],
+  "trader_note": "<one sharp sentence: what a trader should specifically watch or act on based purely on this news picture>"
+}`;
+
+  try {
+    const res = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-api-key': ANTHROPIC_KEY,
+        'anthropic-version': '2023-06-01',
+        'anthropic-dangerous-direct-browser-access': 'true',
+        'anthropic-beta': 'web-search-2025-03-05'
+      },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-6',
+        max_tokens: 4000,
+        system: systemPrompt,
+        tools: [{ type: 'web_search_20250305', name: 'web_search', max_uses: 6 }],
+        messages: [{
+          role: 'user',
+          content: `Search for the latest news about ${assetFullName} (${assetDesc}). Use multiple web searches. Then return your analysis as raw JSON only.`
+        }]
+      })
+    });
+
+    if (!res.ok) {
+      const err = await res.json();
+      throw new Error(err.error?.message || 'API error ' + res.status);
+    }
+
+    const apiData = await res.json();
+    const fullText = apiData.content
+      .filter(b => b.type === 'text')
+      .map(b => b.text)
+      .join('');
+
+    const first = fullText.indexOf('{');
+    const last = fullText.lastIndexOf('}');
+    if (first === -1 || last === -1) throw new Error('Could not parse news response.');
+    let parsed;
+    try { parsed = JSON.parse(fullText.substring(first, last + 1)); }
+    catch(e) { throw new Error('JSON parse error. Try again.'); }
+
+    renderNewsResult(parsed, assetFullName, icon);
+  } catch(err) {
+    body.innerHTML = `<div class="nrp-error">⚠️ ${err.message || 'Something went wrong. Check your connection and try again.'}</div>`;
+  }
+};
+
+function renderNewsResult(data, assetName, icon) {
+  const body = document.getElementById('nrpBody');
+  const sent = (data.sentiment || 'Neutral').toLowerCase();
+  const sentEmoji = sent === 'bullish' ? '📈' : sent === 'bearish' ? '📉' : '➡️';
+  const confPct = Math.max(0, Math.min(100, Number(data.confidence) || 0));
+  const weight = Math.max(0, Math.min(100, Number(data.news_weight_pct) || 50));
+
+  const driversHtml = (data.key_drivers || []).map(d =>
+    `<div class="nrp-driver-item"><div class="nrp-driver-dot">›</div><div>${d}</div></div>`
+  ).join('');
+
+  const sourcesHtml = (data.sources || []).map((s, i) => `
+    <div class="nrp-source-item">
+      <div class="nrp-source-num">${i+1}</div>
+      <div class="nrp-source-info">
+        <div class="nrp-source-pub">${s.publication || 'Source'}${s.date ? ' · ' + s.date : ''}</div>
+        <div class="nrp-source-headline">${s.headline || '—'}</div>
+        ${s.url ? `<div class="nrp-source-url">${s.url}</div>` : ''}
+      </div>
+    </div>`).join('');
+
+  body.innerHTML = `
+    <div class="nrp-sentiment-card ${sent}">
+      <div class="nrp-sentiment-label">Market Sentiment</div>
+      <div class="nrp-sentiment-val">${sentEmoji} ${data.sentiment || 'Neutral'}</div>
+      <div class="nrp-confidence-row">
+        <div class="nrp-conf-label">Signal strength</div>
+        <div class="nrp-conf-track"><div class="nrp-conf-fill" style="width:${confPct}%;background:${sent==='bearish'?'var(--red)':'var(--green)'}"></div></div>
+        <div class="nrp-conf-val">${confPct}/100</div>
+      </div>
+      <div class="nrp-weight-tag">News influence on trade: <b>${weight}%</b></div>
+    </div>
+
+    <div style="background:var(--card);border:1px solid var(--border);border-radius:16px;padding:16px;margin-bottom:16px;font-size:13px;color:var(--text-dim);line-height:1.6">
+      <div class="nrp-section-title" style="margin-bottom:8px">Summary</div>
+      ${data.summary || '—'}
+    </div>
+
+    ${data.trader_note ? `<div style="background:var(--green-muted);border:1px solid var(--green-border);border-radius:16px;padding:14px 16px;margin-bottom:16px;font-size:13px;color:var(--white);line-height:1.5"><b>Trader note</b> — ${data.trader_note}</div>` : ''}
+
+    <div class="nrp-section-title">Key drivers</div>
+    <div class="nrp-drivers">${driversHtml || '<div style="color:var(--text-muted);font-size:13px">No specific drivers found.</div>'}</div>
+
+    <div class="nrp-section-title">Sources checked by AI (${(data.sources||[]).length})</div>
+    <div class="nrp-sources">${sourcesHtml || '<div style="color:var(--text-muted);font-size:13px;padding:12px 0">No sources listed.</div>'}</div>
+  `;
+}
+
+window.closeNewsResult = () => {
+  document.getElementById('newsResultPanel').classList.remove('open');
 };
 
 // PWA manifest
